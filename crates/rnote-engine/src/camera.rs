@@ -93,8 +93,8 @@ impl Camera {
         let mut widget_flags = WidgetFlags::default();
         let (lower, upper) = self.offset_lower_upper(doc);
         self.offset = na::vector![
-            offset[0].clamp(lower[0], upper[0]),
-            offset[1].clamp(lower[1], upper[1])
+            offset[0].clamp(lower[0], upper[0]).round(),
+            offset[1].clamp(lower[1], upper[1]).round()
         ];
 
         widget_flags.update_view = true;
